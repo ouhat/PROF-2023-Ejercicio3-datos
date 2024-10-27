@@ -46,7 +46,7 @@
 		<dependency>
 			<groupId>com.github.ouhat</groupId>
 			<artifactId>testSmellPlugin</artifactId>
-			<version>1.0</version>
+			<version>v1.0.0</version>
 		</dependency>
 
 	</dependencies>
@@ -73,7 +73,7 @@
 			<plugin>
 				<groupId>com.github.ouhat</groupId>
 				<artifactId>testSmellPlugin</artifactId>
-				<version>1.0</version>
+				<version>v1.0.0</version>
 				<executions>
 					<execution>
 						<goals>
@@ -83,10 +83,62 @@
 				</executions>
 				<configuration>
 					<mainPaths>
-						<mainPath>/home/vboxuser/PROF-2023-Ejercicio3-datos/src/main/java/es/upm/grise/prof/curso2023/ejercicio3/SUT.java</mainPath>
-					</mainPaths>
+						<mainPath>${basedir}/PROF-2023-Ejercicio3-datos/src/main/java/es/upm/grise/prof/curso2023/ejercicio3/SUT.java</mainPath>
+					</mainPaths><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+										 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+					<modelVersion>4.0.0</modelVersion>
+
+					<groupId>com.github.ouhat</groupId>
+					<artifactId>tsdetect-plugin</artifactId>
+					<version>1.0</version>
+					<packaging>maven-plugin</packaging>
+
+					<name>TSDetect Plugin</name>
+
+					<build>
+						<plugins>
+							<plugin>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-plugin-plugin</artifactId>
+								<version>3.5</version>
+								<configuration>
+									<goalPrefix>testsmells</goalPrefix>
+								</configuration>
+							</plugin>
+							<plugin>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-compiler-plugin</artifactId>
+								<version>3.8.1</version>
+								<configuration>
+									<source>1.8</source> <!-- o la versión de Java que estás usando, como 11 o 17 -->
+									<target>1.8</target>
+								</configuration>
+							</plugin>
+						</plugins>
+					</build>
+
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.maven</groupId>
+							<artifactId>maven-plugin-api</artifactId>
+							<version>3.6.3</version>
+						</dependency>
+						<dependency>
+							<groupId>org.apache.maven.plugin-tools</groupId>
+							<artifactId>maven-plugin-annotations</artifactId>
+							<version>3.6.0</version>
+							<scope>provided</scope>
+						</dependency>
+						<dependency>
+							<groupId>org.apache.maven</groupId>
+							<artifactId>maven-project</artifactId>
+							<version>2.2.1</version>
+						</dependency>
+					</dependencies>
+				</project>
+
 					<testPaths>
-						<testPath>/home/vboxuser/PROF-2023-Ejercicio3-datos/src/test/java/es/upm/grise/prof/curso2023/ejercicio3/SUTTest.java</testPath>
+						<testPath>${basedir}/PROF-2023-Ejercicio3-datos/src/test/java/es/upm/grise/prof/curso2023/ejercicio3/SUTTest.java</testPath>
 					</testPaths>
 					<projectName>PROF-2023-Ejercicio3-datos</projectName>
 					<csvName>resultados.csv</csvName>
