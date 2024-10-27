@@ -13,6 +13,20 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 		<dependency>
@@ -27,6 +41,12 @@
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>5.10.0</version>
 			<scope>test</scope>
+		</dependency>
+		<!-- repo -->
+		<dependency>
+			<groupId>com.github.ouhat</groupId>
+			<artifactId>testSmellPlugin</artifactId>
+			<version>1.0</version>
 		</dependency>
 
 	</dependencies>
@@ -48,6 +68,32 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.0</version>
+			</plugin>
+
+			<plugin>
+				<groupId>com.github.ouhat</groupId>
+				<artifactId>testSmellPlugin</artifactId>
+				<version>1.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>testSmellPlugin</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainPaths>
+						<mainPath>/home/vboxuser/PROF-2023-Ejercicio3-datos/src/main/java/es/upm/grise/prof/curso2023/ejercicio3/SUT.java</mainPath>
+					</mainPaths>
+					<testPaths>
+						<testPath>/home/vboxuser/PROF-2023-Ejercicio3-datos/src/test/java/es/upm/grise/prof/curso2023/ejercicio3/SUTTest.java</testPath>
+					</testPaths>
+					<projectName>PROF-2023-Ejercicio3-datos</projectName>
+					<csvName>resultados.csv</csvName>
+					<csvDirectory>/home/vboxuser/Desktop/</csvDirectory>
+					<jarPath>/home/vboxuser/Desktop/TestSmellDetector.jar</jarPath>
+					<exitPath>/home/vboxuser/Desktop/</exitPath>
+				</configuration>
 			</plugin>
 
 		</plugins>
