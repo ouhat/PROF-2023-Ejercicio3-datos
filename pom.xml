@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>es.upm.grise</groupId>
@@ -19,6 +21,14 @@
 			<url>https://jitpack.io</url>
 		</repository>
 	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<dependencies>
 		<!-- JUnit 5 dependencies -->
 		<dependency>
@@ -32,13 +42,6 @@
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>5.10.0</version>
 			<scope>test</scope>
-		</dependency>
-
-		<!-- Test Smell Plugin Dependency -->
-		<dependency>
-			<groupId>com.github.ouhat</groupId>
-			<artifactId>testSmellPlugin</artifactId>
-			<version>1.0.0</version>
 		</dependency>
 	</dependencies>
 
@@ -72,6 +75,10 @@
 						<goals>
 							<goal>detect</goal>
 						</goals>
+						<configuration>
+							<!-- Especifica la ruta correcta según sea necesario -->
+							<TsPath>${project.basedir}/path/to/tsDetect</TsPath>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
