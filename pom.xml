@@ -68,7 +68,7 @@
 			<plugin>
 				<groupId>com.github.ouhat</groupId>
 				<artifactId>testSmellPlugin</artifactId>
-				<version>1.0.0</version>
+				<version>1.0.3</version>
 				<executions>
 					<execution>
 						<phase>test</phase>
@@ -76,8 +76,12 @@
 							<goal>detect</goal>
 						</goals>
 						<configuration>
-							<!-- Especifica la ruta correcta según sea necesario -->
-							<TsPath>${project.basedir}/path/to/tsDetect</TsPath>
+							<!-- Añadir la ruta de los tests según sea necesario -->
+							<TsPath>${project.basedir}/tsDetect/TestSmellDetector.jar</TsPath>
+							<CsvOutputPath>${project.build.directory}/testSmellsInput.csv</CsvOutputPath>
+							<TestPaths>
+								<TestPath>${project.basedir}/src/test/java/es/upm/grise/prof/curso2023/ejercicio3/SUTTest.java</TestPath>
+							</TestPaths>
 						</configuration>
 					</execution>
 				</executions>
